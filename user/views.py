@@ -38,13 +38,10 @@ from django.utils.translation import gettext_lazy as _
 
 def signup(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        username = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         email = request.POST['email']
-
-        print("inlineCheckbox1 :",request.POST.getlist('inlineCheckbox1'))
-        print("inlineCheckbox2 :",request.POST.getlist('inlineCheckbox2'))
 
         if password1 == password2:
             if User.objects.filter(username=username).exists():
